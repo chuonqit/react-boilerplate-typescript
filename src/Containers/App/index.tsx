@@ -1,15 +1,30 @@
 import React from "react";
+import styled from "styled-components";
 import { GlobalStyled } from "../../Styles/GlobalStyled";
+import { connector } from "./selectors";
 
-type Props = {};
+const Wrapper = styled.div`
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
+
+type Props = {
+  theme: string;
+  handleChangeTheme: () => void;
+};
 
 const App = (props: Props) => {
   return (
-    <React.Fragment>
+    <Wrapper>
       <GlobalStyled />
-      <h1>Hello, Friends!</h1>
-    </React.Fragment>
+      <h1>{props.theme}</h1>
+      <button onClick={() => props.handleChangeTheme()}>Change Theme</button>
+    </Wrapper>
   );
 };
 
-export default App;
+export default connector(App);
