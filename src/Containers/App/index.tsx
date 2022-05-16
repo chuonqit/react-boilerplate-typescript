@@ -1,7 +1,8 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { GlobalStyled } from "../../Styles/GlobalStyled";
-import { connector } from "./selectors";
+import Counter from "../Counter";
+import { PropsFromRedux, connector } from "./selectors";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -10,19 +11,23 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  ${(props) =>
+    props.theme === "dark" &&
+    css`
+      color: #ffffff;
+      background-color: #333333;
+    `};
 `;
 
-type Props = {
-  theme: string;
-  handleChangeTheme: () => void;
-};
+type OwnProps = {};
+type Props = OwnProps & PropsFromRedux;
 
 const App = (props: Props) => {
   return (
-    <Wrapper>
+    <Wrapper theme={props.theme}>
+      <button onClick={props.setAppTheme}>Light / Dark</button>
+      <Counter />
       <GlobalStyled />
-      <h1>{props.theme}</h1>
-      <button onClick={() => props.handleChangeTheme()}>Change Theme</button>
     </Wrapper>
   );
 };

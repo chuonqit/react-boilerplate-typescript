@@ -12,7 +12,7 @@ const appReducer = createSlice({
   name: "app",
   initialState,
   reducers: {
-    setAppTheme: (state: AppState) => {
+    setAppTheme: (state) => {
       state.theme = state.theme === "light" ? "dark" : "light";
     },
   },

@@ -1,20 +1,24 @@
 import { connect, ConnectedProps } from "react-redux";
 import { RootState } from "../../Redux/configureStore";
 import { createSelector } from "reselect";
-import { setAppTheme } from "./reducer";
+import { onDecrease, onIncrease } from "./reducer";
 
-export const appSelector = (state: RootState) => state.app;
+export const counterSelector = (state: RootState) => state.counter;
 
-export const selectTheme = createSelector(appSelector, (state) => state.theme);
+export const selectNumber = createSelector(
+  counterSelector,
+  (state) => state.number
+);
 
 export const mapStateToProps = (state: RootState) => {
   return {
-    theme: selectTheme(state),
+    number: selectNumber(state),
   };
 };
 
 export const mapDispatchToProps = {
-  setAppTheme,
+  onDecrease,
+  onIncrease,
 };
 
 export const connector = connect(mapStateToProps, mapDispatchToProps);

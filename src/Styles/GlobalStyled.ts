@@ -16,5 +16,7 @@ export const GlobalStyled = createGlobalStyle`
     font-size: 1.4rem;
     text-align: left;
     color: #212121;
+    margin: 0;
+    padding: 0;
   }
 `;
