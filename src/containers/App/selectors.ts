@@ -1,6 +1,6 @@
 import { connect, ConnectedProps } from "react-redux";
-import { RootState } from "../../Redux/configureStore";
 import { createSelector } from "reselect";
+import { RootState } from "../../store";
 import { setAppTheme } from "./reducer";
 
 export const appSelector = (state: RootState) => state.app;

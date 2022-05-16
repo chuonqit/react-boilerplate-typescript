@@ -1,6 +1,7 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import { GlobalStyled } from "../../Styles/GlobalStyled";
+import Button from "../../components/Button";
+import { GlobalStyled } from "../../styles/GlobalStyled";
 import Counter from "../Counter";
 import { PropsFromRedux, connector } from "./selectors";
 
@@ -25,7 +26,7 @@ type Props = OwnProps & PropsFromRedux;
 const App = (props: Props) => {
   return (
     <Wrapper theme={props.theme}>
-      <button onClick={props.setAppTheme}>Light / Dark</button>
+      <Button onClick={props.setAppTheme}>Light / Dark</Button>
       <Counter />
       <GlobalStyled />
     </Wrapper>

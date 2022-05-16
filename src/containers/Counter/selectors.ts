@@ -1,7 +1,7 @@
 import { connect, ConnectedProps } from "react-redux";
-import { RootState } from "../../Redux/configureStore";
-import { createSelector } from "reselect";
 import { onDecrease, onIncrease } from "./reducer";
+import { createSelector } from "reselect";
+import { RootState } from "../../store";
 
 export const counterSelector = (state: RootState) => state.counter;
 

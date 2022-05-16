@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import appReducer from "../Containers/App/reducer";
-import counterReducer from "../Containers/Counter/reducer";
+import appReducer from "../containers/App/reducer";
+import counterReducer from "../containers/Counter/reducer";
 
 const reducers = combineReducers({
   [appReducer.name]: appReducer.reducer,
